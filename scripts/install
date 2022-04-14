@@ -134,7 +134,8 @@ ynh_script_progression --message="Building $app... (this will take some time and
 pushd "$final_path"
 	ynh_use_nodejs
 	npm install -g prisma
-	npm run build:without-migrate
+	prisma migrate deploy --schema ./prisma/pgsql/schema.prisma
+	#npm run build:without-migrate
 popd
 
 #=================================================
